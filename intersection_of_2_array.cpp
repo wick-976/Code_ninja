@@ -27,3 +27,34 @@ int main()
         cout<<x<<" ";
     }
 }
+
+
+//optimal two pointer solution
+#include <bits/stdc++.h> 
+vector<int> findArrayIntersection(vector<int> &arr1, int size1, vector<int> &arr2, int size2)
+
+{
+	vector<int>answer;
+
+	int i=0;
+	int z=0;
+
+	while(i<size1 && z<size2)
+	{
+		if(arr1[i]==arr2[z])
+		{
+			answer.push_back(arr1[i]);
+			i++;
+			z++;
+		}
+		else if(arr1[i]<arr2[z])
+		{
+			i++;
+		}
+		else{
+			z++;
+		}
+	}
+
+	return answer;
+}
