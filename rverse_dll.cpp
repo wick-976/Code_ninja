@@ -57,3 +57,25 @@ Node* reverseDLL(Node* head)
 
 }
 
+//optimal Solution
+//using pointer variables by interchanging the address of
+//next and prev
+Node* reverseDLL(Node* head)
+{   
+    Node* curr=head;
+
+    Node* prev=NULL;
+
+    if(curr==NULL || curr->next==NULL) return curr;
+
+    while(curr != NULL)
+    {
+        prev=curr->prev;
+        curr->prev=curr->next;
+        curr->next=prev;
+
+        curr=curr->prev;
+    }  
+
+    return prev->prev;
+}
